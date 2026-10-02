@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>なりきりドロボー テスト版</title>
+<meta name="description" content="NPCに乗り移って、なりきって、本命をしれっと脱出させる1対1の対戦ゲーム。友達向けテスト版のダウンロード。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b0f2e;
+    --panel: #2a1846;
+    --panel-deep: #21123a;
+    --ink: #2a0f40;
+    --text: #f6f0ff;
+    --muted: #c9bdf0;
+    --pink: #ff54a3;
+    --pink-light: #ff99d1;
+    --cyan: #38dbf2;
+    --gold: #ffd940;
+    --gold-deep: #ff9a14;
+    --lilac: #9f70ff;
+    --mint: #59eba8;
+    --radius: 22px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #3c1d63 0%, transparent 60%),
+      radial-gradient(900px 500px at 100% 10%, #2a1f6b 0%, transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic UI", sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--cyan); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---- ヒーロー */
+  header.hero { padding: 56px 0 28px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 36px; align-items: center; }
+  .logo { margin: 0; line-height: 1.02; transform: rotate(-4deg); transform-origin: left center; }
+  .logo span { display: block; font-weight: 900; letter-spacing: -0.02em; white-space: nowrap; }
+  .logo .a {
+    font-size: clamp(48px, 6.4vw, 84px);
+    background: linear-gradient(#ffc2e2, var(--pink));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 5px 0 var(--ink)) drop-shadow(0 0 0 #fff);
+  }
+  .logo .b {
+    font-size: clamp(54px, 7.2vw, 96px); margin-left: 0.3em;
+    background: linear-gradient(#fff7a0, var(--gold-deep));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 6px 0 var(--ink));
+  }
+  .en {
+    display: inline-block; margin: 18px 0 0; padding: 4px 18px; border-radius: 999px;
+    background: var(--pink); color: #fff; font-weight: 900; letter-spacing: 0.08em; font-size: 15px;
+    box-shadow: 0 4px 0 var(--ink); transform: rotate(-3deg);
+  }
+  .tagline { font-size: 22px; font-weight: 800; margin: 18px 0 6px; }
+  .tagline em { font-style: normal; color: var(--gold); }
+  .nw { white-space: nowrap; }
+  .lead { color: var(--muted); margin: 0 0 22px; }
+  .shot {
+    width: 100%; height: auto; display: block; border-radius: var(--radius);
+    border: 5px solid #fff; box-shadow: 0 10px 0 var(--ink), 0 18px 40px rgba(0,0,0,.45);
+    background: var(--panel);
+  }
+  .hero .shot { transform: rotate(1.5deg); }
+
+  /* ---- ダウンロード */
+  .dl { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px 16px;
+    border-radius: 20px; color: #fff; text-decoration: none; font-weight: 900; font-size: 22px;
+    border: 4px solid var(--ink); box-shadow: 0 7px 0 var(--ink); transition: transform .08s, box-shadow .08s;
+  }
+  .btn small { display: block; font-size: 13px; font-weight: 800; opacity: .9; line-height: 1.2; }
+  .btn:hover { transform: translateY(-2px) scale(1.02); }
+  .btn:active { transform: translateY(5px); box-shadow: 0 2px 0 var(--ink); }
+  .btn.win { background: linear-gradient(#5be6ff, #19a9d6); }
+  .btn.mac { background: linear-gradient(#ff8cc6, var(--pink)); }
+  .btn svg { width: 28px; height: 28px; flex: none; }
+  .ver { color: var(--muted); font-size: 14px; margin-top: 12px; }
+
+  /* ---- セクション */
+  section { padding: 34px 0; }
+  h2 {
+    display: inline-block; margin: 0 0 22px; padding: 6px 22px 8px; border-radius: 16px;
+    background: var(--panel-deep); border: 4px solid var(--gold); box-shadow: 0 6px 0 var(--ink);
+    font-size: 26px; font-weight: 900; color: var(--gold); transform: rotate(-1.5deg);
+  }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    background: var(--panel); border-radius: var(--radius); padding: 20px 22px 22px;
+    border: 4px solid var(--lilac); box-shadow: 0 7px 0 var(--ink);
+  }
+  .card h3 { margin: 0 0 8px; font-size: 21px; font-weight: 900; }
+  .card p { margin: 0; color: var(--muted); }
+  .card.thief { border-color: var(--pink); } .card.thief h3 { color: var(--pink-light); }
+  .card.oni { border-color: var(--cyan); } .card.oni h3 { color: #a3f6ff; }
+  .card.friend { border-color: var(--gold); } .card.friend h3 { color: var(--gold); }
+
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .gallery figure { margin: 0; }
+  .gallery figcaption { text-align: center; color: var(--muted); font-size: 14px; margin-top: 12px; }
+
+  .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .panel { background: var(--panel); border-radius: var(--radius); padding: 22px 26px; box-shadow: 0 7px 0 var(--ink); }
+  .panel h3 { margin: 0 0 6px; font-size: 20px; font-weight: 900; }
+  .panel ol, .panel ul { margin: 6px 0 0; padding-left: 1.3em; }
+  .panel li { margin: 4px 0; }
+  .panel .note { color: var(--muted); font-size: 14px; margin-top: 10px; }
+  code, kbd {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em;
+    background: #120a20; color: #ffe9a8; padding: 2px 7px; border-radius: 7px;
+  }
+  pre { background: #120a20; color: #ffe9a8; padding: 12px 16px; border-radius: 12px; overflow-x: auto; font-size: 14px; }
+  .room-code {
+    display: inline-block; font-weight: 900; font-size: 28px; letter-spacing: .14em; padding: 0 14px;
+    background: linear-gradient(#fff7a0, var(--gold-deep)); color: var(--ink); border-radius: 12px;
+  }
+  table.keys { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  table.keys th { text-align: left; width: 5em; color: var(--gold); font-weight: 900; vertical-align: top; }
+  footer { padding: 30px 0 50px; color: var(--muted); font-size: 14px; text-align: center; }
+
+  @media (max-width: 860px) {
+    .hero-grid, .steps { grid-template-columns: 1fr; }
+    .cards, .gallery { grid-template-columns: 1fr; }
+    header.hero { padding-top: 32px; }
+    .hero .shot { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="logo"><span class="a">なりきり</span><span class="b">ドロボー</span></h1>
+      <span class="en">COPYCAT CROOK</span>
+      <p class="tagline"><span class="nw">のりうつって、</span><span class="nw">なりきって、</span><em class="nw">しれっと脱出。</em></p>
+      <p class="lead">宝物庫のNPCに乗り移り、宝石を隠した「本命」を出口まで運ぶ1対1の対戦ゲーム。友達向けのテスト版です。</p>
+      <div class="dl">
+        <a class="btn win" href="https://github.com/keitarumi/copycat-crook/releases/latest/download/CopycatCrook-win.zip">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm8.4-1.2L21 3v8.5h-9.6V4.3ZM3 12.5h7.5v7.1L3 18.5v-6Zm8.4 0H21V21l-9.6-1.3v-7.2Z"/></svg>
+          <span>Windows 版<small>Windows 10 / 11（64bit）</small></span>
+        </a>
+        <a class="btn mac" href="https://github.com/keitarumi/copycat-crook/releases/latest/download/CopycatCrook-mac.zip">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.9ZM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4Z"/></svg>
+          <span>Mac 版<small>macOS 12 以降（Intel / Apple シリコン）</small></span>
+        </a>
+      </div>
+      <p class="ver">テスト版 0.1.0（2026年10月2日）・無料。2人で遊べます（ネット越しでも、同じ家のネットワークでも）。</p>
+    </div>
+    <img class="shot" src="img/title.jpg" alt="タイトル画面" width="1280" height="720">
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>どんなゲーム？</h2>
+    <div class="cards">
+      <div class="card thief">
+        <h3>泥棒：なりきって運ぶ</h3>
+        <p>宝石を隠す「本命」を選び、出口へ。ほかの子に乗り移って<b>おとり</b>にもできる。まわりと同じように歩き、止まり、仕草をして、NPCのふりをしよう。</p>
+      </div>
+      <div class="card oni">
+        <h3>鬼：見破って捕まえる</h3>
+        <p>一人称で群れを見張り、不自然な子に<b>捕獲魔法</b>。ただし人が操作している子が本命とは限らない。からっぽの子に当てても回数はへる。</p>
+      </div>
+      <div class="card friend">
+        <h3>攻守を交代して勝負</h3>
+        <p>各自2回ずつ泥棒をして合計点で勝負。出口から遠い子ほど高得点。友達とはオンラインの<b>フレンド対戦</b>で。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>画面</h2>
+    <div class="gallery">
+      <figure><img class="shot" src="img/thief.jpg" alt="泥棒の画面" loading="lazy" width="1280" height="720"><figcaption>泥棒：おとりを操作中。黄色い扇は鬼の視界</figcaption></figure>
+      <figure><img class="shot" src="img/oni.jpg" alt="鬼の画面" loading="lazy" width="1280" height="720"><figcaption>鬼：一人称で捕獲魔法</figcaption></figure>
+      <figure><img class="shot" src="img/escape.jpg" alt="脱出の結果" loading="lazy" width="1280" height="720"><figcaption>本命が脱出すると得点</figcaption></figure>
+    </div>
+  </section>
+
+  <section id="start">
+    <h2>はじめかた</h2>
+    <div class="steps">
+      <div class="panel">
+        <h3>Windows</h3>
+        <ol>
+          <li>zip を右クリック →「すべて展開」。</li>
+          <li>フォルダの中の <code>Copycat Crook.exe</code> をダブルクリック。</li>
+          <li>「WindowsによってPCが保護されました」と出たら<b>「詳細情報」→「実行」</b>。</li>
+        </ol>
+        <p class="note">個人で作っているテスト版なので、署名がなく警告が出ます。</p>
+      </div>
+      <div class="panel">
+        <h3>Mac</h3>
+        <ol>
+          <li>zip をダブルクリックして展開し、<code>CopycatCrook.app</code> を開く。</li>
+          <li>「開けません」と出たら、<b>システム設定 → プライバシーとセキュリティ</b>の下の方にある<b>「このまま開く」</b>。</li>
+          <li>同じ家のネットワークで遊ぶときは「ローカルネットワーク」の確認で<b>「許可」</b>。</li>
+        </ol>
+        <p class="note">「壊れているため開けません」と出るときは、ターミナルでこれを1回だけ：</p>
+        <pre>xattr -dr com.apple.quarantine ~/Downloads/CopycatCrook.app</pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="verify">
+    <div class="panel">
+      <h3>ダウンロードしたファイルの確認（任意）</h3>
+      <p class="note">配っているのはこのページと GitHub の Releases だけです。ほかの場所から受け取った zip は開かないでください。中身が本物かどうかは、次の SHA-256 と一致するかで確かめられます。</p>
+      <pre id="sums">7d052bcaeba85b4b4d1e3506c5d43f024737430051aa22aa31c7754ec6af8c01  CopycatCrook-mac.zip
+5337dc930ae688a6b0510d0b3f5b0c5aa65a581f8acda06d933ed96fb738b9dc  CopycatCrook-win.zip</pre>
+    </div>
+  </section>
+
+  <section id="friends">
+    <h2>友達と遊ぶ</h2>
+    <div class="steps">
+      <div class="panel">
+        <h3>ネット越し（部屋コード）</h3>
+        <ol>
+          <li>片方がタイトルの<b>「フレンド対戦」</b>→ テストサーバーの<b>「部屋をつくる」</b>。<br><span class="room-code">AB3CD</span> のような5文字の部屋コードが出ます。</li>
+          <li>部屋コードを LINE などで友達に送る。</li>
+          <li>友達は「フレンド対戦」→ コードを入れて<b>「参加」</b>。</li>
+          <li>2人そろったら、部屋を作った人が<b>「対戦スタート！」</b>。</li>
+        </ol>
+      </div>
+      <div class="panel">
+        <h3>同じ家のネットワーク</h3>
+        <ol>
+          <li>片方が「フレンド対戦」→ LAN の<b>「部屋をつくる」</b>。</li>
+          <li>もう片方の「フレンド対戦」の LAN の欄に部屋が出るので押す。</li>
+        </ol>
+        <p class="note">出てこないときは、部屋を作った側に表示されるアドレス（例 192.168.0.10）を入れて「参加」。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>操作</h2>
+    <div class="panel">
+      <table class="keys">
+        <tr><th>泥棒</th><td><kbd>WASD</kbd> 移動　<kbd>Space</kbd>・<kbd>F</kbd> 仕草　<kbd>左クリック</kbd> 乗り移り　<kbd>R</kbd> 本命へ戻る　<kbd>Q</kbd>・<kbd>E</kbd> カメラ　<kbd>Tab</kbd> 全体</td></tr>
+        <tr><th>鬼</th><td><kbd>マウス</kbd> 見回す　<kbd>WASD</kbd> 移動　<kbd>左クリック</kbd> 捕獲魔法　<kbd>Esc</kbd> メニュー</td></tr>
+      </table>
+      <p class="note">ひとりでも CPU と対戦できます。</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  なりきりドロボー（Copycat Crook）テスト版　｜　うまく動かないところや感想は、作者に直接教えてください。
+</footer>
+
+</body>
+</html>

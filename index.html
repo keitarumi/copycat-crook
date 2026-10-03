@@ -77,13 +77,14 @@
   .hero .shot { transform: rotate(1.5deg); }
 
   /* ---- ダウンロード */
-  .dl { display: flex; flex-wrap: wrap; gap: 14px; }
+  .dl { display: inline-grid; grid-template-columns: max-content; gap: 14px; max-width: 100%; }
   .btn {
     display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px 16px;
     border-radius: 20px; color: #fff; text-decoration: none; font-weight: 900; font-size: 22px;
     border: 4px solid var(--ink); box-shadow: 0 7px 0 var(--ink); transition: transform .08s, box-shadow .08s;
   }
   .btn small { display: block; font-size: 13px; font-weight: 800; opacity: .9; line-height: 1.2; }
+  .dl .btn { width: 100%; }
   .btn:hover { transform: translateY(-2px) scale(1.02); }
   .btn:active { transform: translateY(5px); box-shadow: 0 2px 0 var(--ink); }
   .btn.win { background: linear-gradient(#5be6ff, #19a9d6); }
@@ -109,11 +110,34 @@
   .card.oni { border-color: var(--cyan); } .card.oni h3 { color: #a3f6ff; }
   .card.friend { border-color: var(--gold); } .card.friend h3 { color: var(--gold); }
 
+  .bonus {
+    margin-top: 18px; display: grid; grid-template-columns: 1fr 1.05fr; gap: 24px; align-items: center;
+    background: var(--panel); border-radius: var(--radius); padding: 22px 26px 24px;
+    border: 4px solid var(--gold); box-shadow: 0 7px 0 var(--ink);
+  }
+  .bonus h3 { margin: 0 0 8px; font-size: 21px; font-weight: 900; color: var(--gold); }
+  .bonus p { margin: 0 0 10px; color: var(--muted); }
+  .bonus ul { margin: 0; padding-left: 1.2em; color: var(--muted); }
+  .bonus li { margin: 4px 0; }
+  .bonus b { color: var(--text); }
+  .levels { display: flex; gap: 8px; margin: 10px 0 12px; flex-wrap: wrap; }
+  .levels span {
+    padding: 2px 12px; border-radius: 999px; font-weight: 900; font-size: 15px; color: var(--ink);
+    transform: skewX(-12deg);
+  }
+  .levels .l1 { background: var(--pink-light); }
+  .levels .l2 { background: linear-gradient(90deg, #ffb347, var(--gold)); }
+  .levels .mx { background: linear-gradient(90deg, #ff6bd5, #ffd940, #59eba8, #38dbf2, #9f70ff); }
+  .bonus figure { margin: 0; }
+  .bonus img { width: 100%; height: auto; display: block; border-radius: 16px; box-shadow: 0 6px 0 var(--ink), 0 14px 30px rgba(0,0,0,.4); }
+  .bonus figcaption { text-align: center; color: var(--muted); font-size: 14px; margin-top: 10px; }
+
   .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .gallery figure { margin: 0; }
   .gallery figcaption { text-align: center; color: var(--muted); font-size: 14px; margin-top: 12px; }
 
   .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .steps > *, .bonus > * { min-width: 0; } /* 長いコマンド（pre）で列が画面より広がらないように */
   .panel { background: var(--panel); border-radius: var(--radius); padding: 22px 26px; box-shadow: 0 7px 0 var(--ink); }
   .panel h3 { margin: 0 0 6px; font-size: 20px; font-weight: 900; }
   .panel ol, .panel ul { margin: 6px 0 0; padding-left: 1.3em; }
@@ -134,7 +158,7 @@
 
   @media (max-width: 860px) {
     .hero-grid, .steps { grid-template-columns: 1fr; }
-    .cards, .gallery { grid-template-columns: 1fr; }
+    .cards, .gallery, .bonus { grid-template-columns: 1fr; }
     header.hero { padding-top: 32px; }
     .hero .shot { transform: none; }
   }
@@ -182,6 +206,23 @@
         <p>各自2回ずつ泥棒をして合計点で勝負。出口から遠い子ほど高得点。友達とはオンラインの<b>フレンド対戦</b>で。</p>
       </div>
     </div>
+    <div class="bonus" id="bonus">
+      <div>
+        <h3>演技ボーナス：鬼の目の前で、なりきれ！</h3>
+        <p>本命を操作しているときに、<b>鬼に見られながら仕草</b><span class="nw">（<kbd>Space</kbd>・<kbd>F</kbd>）</span>を決めると「名演技」。決めるたびにゲージが1段上がり、脱出したときの点が増えます。</p>
+        <div class="levels"><span class="l1">Lv.1　+0</span><span class="l2">Lv.2　+1点</span><span class="mx">MAX　+2点</span></div>
+        <ul>
+          <li>仕草の間、本命の頭の上に輪が出ます。<b>見られている間だけ</b>満ちて、いっぱいになれば成功。</li>
+          <li>点が増えるのは<b>脱出できたときだけ</b>。捕まったり時間切れになったりすると0点です。</li>
+          <li>何回決めたかは<b>鬼には見えません</b>。わかるのは決着のときだけ。</li>
+          <li>でも、鬼の目の前での仕草は見破られるリスクと隣り合わせ。おとりの仕草は数えません。</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="img/bonus.jpg" alt="演技ボーナスのゲージ（MAX）" loading="lazy" width="672" height="236">
+        <figcaption>泥棒の画面の左下。MAX になるとゲージが虹色に光ります</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section id="new">
@@ -190,7 +231,7 @@
       <ul>
         <li><b>ステージが3つに</b>：魔女の宝物庫に、出口2つで魔法の鏡が見張る「鏡の回廊」と、ガラスの温室が並ぶ「まほう温室」が加わりました。タイトルの「ステージ」で選べます。</li>
         <li><b>住人が9種類に</b>：まどうしょ・ほしフクロウ・ろうそく妖精・マンドラゴラ・花の妖精・雨雲ちゃん。どの子も仕草が2つあります。</li>
-        <li><b>名演技（演技ボーナス）</b>：鬼に見られている間に本命で仕草をすると、脱出したときにボーナス点。鬼には見えません。</li>
+        <li><b>演技ボーナス</b>：鬼に見られている間に本命で仕草（名演技）をすると、脱出したときにボーナス点。鬼には見えません。<a href="#bonus">くわしく</a></li>
         <li><b>チュートリアル</b>：はじめて「GAME START」を押すと案内します。「あそびかた」からもいつでも。</li>
         <li><b>設定画面</b>（音量・画面・鬼の見回しの速さ・揺れやフラッシュをへらす）と <b>English</b> 表示。</li>
       </ul>

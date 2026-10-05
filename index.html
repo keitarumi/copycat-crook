@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>なりきりドロボー テスト版</title>
-<meta name="description" content="NPCに乗り移って、なりきって、本命をしれっと脱出させる1対1の対戦ゲーム。友達向けテスト版のダウンロード。">
+<meta name="description" content="NPCに乗り移って、なりきって、本命をしれっと脱出させる対戦ゲーム（1対1・2対2）。友達向けテスト版のダウンロード。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;800;900&display=swap" rel="stylesheet">
@@ -172,7 +172,7 @@
       <h1 class="logo"><span class="a">なりきり</span><span class="b">ドロボー</span></h1>
       <span class="en">COPYCAT CROOK</span>
       <p class="tagline"><span class="nw">のりうつって、</span><span class="nw">なりきって、</span><em class="nw">しれっと脱出。</em></p>
-      <p class="lead">魔法の世界のNPCに乗り移り、宝石を隠した「本命」を出口まで運ぶ1対1の対戦ゲーム。ステージは3つ。友達向けのテスト版です。</p>
+      <p class="lead">魔法の世界のNPCに乗り移り、宝石を隠した「本命」を出口まで運ぶ対戦ゲーム。1対1でも、2人ずつのチームでも。ステージは3つ。友達向けのテスト版です。</p>
       <div class="dl">
         <a class="btn win" href="https://github.com/keitarumi/copycat-crook/releases/latest/download/CopycatCrook-win.zip">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3V5.5Zm8.4-1.2L21 3v8.5h-9.6V4.3ZM3 12.5h7.5v7.1L3 18.5v-6Zm8.4 0H21V21l-9.6-1.3v-7.2Z"/></svg>
@@ -183,7 +183,7 @@
           <span>Mac 版<small>macOS 12 以降（Intel / Apple シリコン）</small></span>
         </a>
       </div>
-      <p class="ver">テスト版 0.2.1（2026年10月3日）・無料。2人で遊べます（ネット越しでも、同じ家のネットワークでも）。日本語／English。</p>
+      <p class="ver">テスト版 0.3.0（2026年10月5日）・無料。2〜4人で遊べます（ネット越しでも、同じ家のネットワークでも。ひとりでも CPU と）。日本語／English。</p>
     </div>
     <img class="shot" src="img/title.jpg" alt="タイトル画面" width="1280" height="720">
   </div>
@@ -203,7 +203,7 @@
       </div>
       <div class="card friend">
         <h3>攻守を交代して勝負</h3>
-        <p>各自2回ずつ泥棒をして合計点で勝負。出口から遠い子ほど高得点。友達とはオンラインの<b>フレンド対戦</b>で。</p>
+        <p>交代で2回ずつ泥棒をして合計点で勝負。出口から遠い子ほど高得点。<b>1対1</b>のほか、2人ずつの<b>2対2</b>も。友達とは<b>フレンド対戦</b>、知らない人とは<b>ランダム対戦</b>で。</p>
       </div>
     </div>
     <div class="bonus" id="bonus">
@@ -221,6 +221,48 @@
       <figure>
         <img src="img/bonus.jpg" alt="演技ボーナスのゲージ（MAX）" loading="lazy" width="672" height="236">
         <figcaption>泥棒の画面の左下。MAX になるとゲージが虹色に光ります</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>0.3.0 で増えたもの：2対2とランダム対戦</h2>
+    <div class="bonus">
+      <div>
+        <h3>2人ずつのチームで、泥棒と鬼を交代</h3>
+        <p>タイトルの<b>「人数」</b>で<b>2対2</b>を選ぶと、2人ずつのチーム戦になります。ラウンドごとにチームで泥棒と鬼を交代（各チーム2回ずつ泥棒）。</p>
+        <ul>
+          <li>泥棒は<b>1人1つずつ本命</b>を持ちます。相方と同じ子は選べません。相方の本命は<b>小さい宝石とピンクの輪</b>で見え、相方が使っている子には乗り移れません（鬼チームには見えません）。</li>
+          <li>本命が脱出したら、その場でチームに点。本命が捕まった・脱出した泥棒は<b>おとり役</b>で続けます（少しすると近くの子へ自動で乗り移ります）。</li>
+          <li>本命が2つとも片付くか、時間切れでラウンド終了。鬼は<b>1人4回ずつ</b>捕獲魔法を持ちます。</li>
+          <li>ひとりなら「あなた＋CPU の相方 vs CPU 2人」。フレンド対戦は2〜4人で、足りない席は CPU が入ります（チームは入った順に交互）。ランダム対戦も2対2を選べます。</li>
+        </ul>
+        <p class="note" style="margin-top:10px">0.2.x とは一緒に遊べません。友達も 0.3.0 を落とし直してください。</p>
+      </div>
+      <figure>
+        <img src="img/team.jpg" alt="2対2の泥棒の画面" loading="lazy" width="1280" height="720">
+        <figcaption>鬼が2人。左下に相方の様子</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="quick">
+    <div class="bonus">
+      <div>
+        <h3>部屋コードなしで、いま遊んでいる人と対戦</h3>
+        <p>タイトルの<b>「ランダム対戦」</b>を押すと、同じ時間に押した人と自動でつながります。ステージは毎回ランダム。</p>
+        <ul>
+          <li>20秒見つからなければ、<b>CPU と対戦しながら待ちます</b>（「CPUと遊んで待つ」ですぐにも）。左上に「対戦相手をさがし中」が出ている間は、裏でさがし続けています。</li>
+          <li>相手が来たら CPU 戦が止まって<b>「対戦相手が見つかった！」</b>。4秒後に対戦が始まります。「CPU戦を続ける」も選べます。</li>
+          <li>終わったら<b>「次の相手をさがす」</b>で続けて遊べます。</li>
+          <li>相手には「フレンド対戦」の<b>なまえ</b>欄の名前が見えます。本名は入れないでください。</li>
+          <li>1対1と2対2は別々にさがします（タイトルの「人数」の選択）。2対2は2人目が来てから少し待ち、空いた席は CPU が入ります。</li>
+          <li>「あそびかた」はタイトルの右上（設定の隣）に移りました。</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="img/quick.jpg" alt="CPU 戦の途中で対戦相手が見つかった画面" loading="lazy" width="1280" height="720">
+        <figcaption>CPU と遊んで待っている間に相手が来たところ</figcaption>
       </figure>
     </div>
   </section>
@@ -277,14 +319,14 @@
     <div class="panel">
       <h3>ダウンロードしたファイルの確認（任意）</h3>
       <p class="note">配っているのはこのページと GitHub の Releases だけです。ほかの場所から受け取った zip は開かないでください。中身が本物かどうかは、次の SHA-256 と一致するかで確かめられます。</p>
-      <pre id="sums">705f2a329a1dd7011ef1beda286a0aac54716e1fdd84d1e373f939ddc534326e  CopycatCrook-mac.zip
-9071228ac200fc7575ba9677106fc5b8a24105526be855038c7752c9b0c6db82  CopycatCrook-win.zip</pre>
+      <pre id="sums">f4a811ec3847297abc043233321d394e193b3be67fcb95e6f540c889dd061095  CopycatCrook-mac.zip
+56eb3ea05cb2db5591365fbe4f1533f54a08cf347463059f6f763e10b9147624  CopycatCrook-win.zip</pre>
     </div>
   </section>
 
   <section id="friends">
     <h2>友達と遊ぶ</h2>
-    <p class="note" style="margin-top:-6px">2人とも同じ版が必要です。「ゲームのバージョンが違います」と出たら、このページから最新版を落とし直してください。</p>
+    <p class="note" style="margin-top:-6px">全員同じ版が必要です。「ゲームのバージョンが違います」と出たら、このページから最新版を落とし直してください。友達がいなくても、タイトルの<b>「ランダム対戦」</b>なら同じ時間に遊んでいる人と対戦できます。<b>2対2</b>で遊ぶときは、部屋をつくる前にタイトルの「人数」で2対2を選んでください（4人まで。足りない席は CPU）。</p>
     <div class="steps">
       <div class="panel">
         <h3>ネット越し（部屋コード）</h3>

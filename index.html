@@ -156,9 +156,48 @@
   table.keys th { text-align: left; width: 5em; color: var(--gold); font-weight: 900; vertical-align: top; }
   footer { padding: 30px 0 50px; color: var(--muted); font-size: 14px; text-align: center; }
 
+
+  /* ---- 鬼のスキル */
+  .intro { color: var(--muted); margin: 0 0 4px; }
+  .intro b { color: var(--text); }
+  .skillcards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 16px; }
+  .skillcard {
+    background: var(--panel); border-radius: var(--radius); padding: 18px 20px 20px;
+    border: 4px solid var(--gold); box-shadow: 0 7px 0 var(--ink); min-width: 0;
+  }
+  .skillcard.cat { border-color: var(--gold-deep); }
+  .skillcard.witch { border-color: var(--lilac); }
+  .skillcard img { width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: 0 5px 0 var(--ink); }
+  .skillcard h3 { margin: 16px 0 2px; font-size: 22px; font-weight: 900; }
+  .skillcard.cat h3 { color: #ffc56b; }
+  .skillcard.witch h3 { color: #d9c2ff; }
+  .skill { margin-top: 12px; }
+  .skill .tag {
+    display: inline-block; font-size: 13px; font-weight: 900; padding: 0 10px; border-radius: 999px;
+    color: var(--ink); margin-right: 8px; transform: skewX(-10deg); vertical-align: 2px;
+  }
+  .skill .tag.act { background: var(--gold); }
+  .skill .tag.pas { background: var(--cyan); }
+  .skill .name { font-weight: 900; font-size: 19px; }
+  .skill p { margin: 4px 0 0; color: var(--muted); }
+  .skill b { color: var(--text); }
+  .skill .fx { font-size: 14px; }
+  .skillpanel { margin-top: 18px; border: 4px solid var(--cyan); }
+  .skillpanel.thiefside { border-color: var(--pink); }
+  .skillpanel.thiefside h3 { color: var(--pink-light); }
+  .skillpanel h3 { color: #a3f6ff; }
+  .skillpanel ul { color: var(--muted); }
+  .skillpanel b { color: var(--text); }
+  .cardstates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 12px 0 10px; }
+  .cardstates figure { margin: 0; min-width: 0; }
+  .cardstates img { width: 100%; height: auto; display: block; border-radius: 12px; }
+  .cardstates figcaption { text-align: center; color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .cardstates figcaption b { color: var(--text); }
+  section > .note { color: var(--muted); font-size: 14px; margin-top: 14px; }
+
   @media (max-width: 860px) {
     .hero-grid, .steps { grid-template-columns: 1fr; }
-    .cards, .gallery, .bonus { grid-template-columns: 1fr; }
+    .cards, .gallery, .bonus, .skillcards, .cardstates { grid-template-columns: 1fr; }
     header.hero { padding-top: 32px; }
     .hero .shot { transform: none; }
   }
@@ -199,7 +238,7 @@
       </div>
       <div class="card oni">
         <h3>鬼：見破って捕まえる</h3>
-        <p>一人称で群れを見張り、不自然な子に<b>捕獲魔法</b>。ただし人が操作している子が本命とは限らない。からっぽの子に当てても回数はへる。</p>
+        <p>一人称で群れを見張り、不自然な子に<b>捕獲魔法</b>。ただし人が操作している子が本命とは限らない。からっぽの子に当てても回数はへる。姿ごとの<a href="#skills">スキル</a>も（CPU 対戦）。</p>
       </div>
       <div class="card friend">
         <h3>攻守を交代して勝負</h3>
@@ -227,24 +266,60 @@
 
   <section id="skills">
     <h2>0.4.0 で増えたもの：鬼のスキル</h2>
-    <div class="bonus">
-      <div>
-        <h3>鬼の見た目ごとに、スキルが2つ</h3>
-        <p>タイトルの「鬼のすがた」で選んだ姿によって、<b>使うスキル</b>（<kbd>右クリック</kbd>・コントローラーは <kbd>LB</kbd>／<kbd>Y</kbd>）と<b>いつも効くスキル</b>が変わります。</p>
-        <ul>
-          <li><b>見張りネコ</b>：<b>するどい鼻</b>（6秒間、みんなの最近の足あとが見える。10秒ごと）＋<b>はや足</b>（いつも少し速く歩ける）</li>
-          <li><b>魔女リリカ</b>：<b>透明化</b>（5秒間、泥棒の画面から体・視界の扇・画面外の矢印が消える。魔法を撃つと解ける。25秒ごと）＋<b>射程アップ</b>（捕獲魔法が遠くまで届く）</li>
-          <li>左下の札でスキルの残り時間と、次に使えるまでが分かります。</li>
-          <li>スキルは CPU 対戦（ひとりで遊ぶとき）だけ。フレンド対戦・ランダム対戦ではスキルなしで、今までどおり遊べます。</li>
-          <li>そのほか：2対2は出口が4つに。出口の手前の目隠しをなくし、出口のすぐそばには子が出ないように（ゴール前の楽な脱出をなくすため）。</li>
-        </ul>
-        <p class="note" style="margin-top:10px">ステージの作りが変わったので、0.3.x とは一緒に遊べません。友達も 0.4.0 を落とし直してください。</p>
+    <p class="intro">タイトルの<b>「鬼のすがた」</b>で選んだ姿によって、鬼のスキルが変わります。どちらの姿にも、ボタンで<b>使うスキル</b>（<kbd>右クリック</kbd>・コントローラーは <kbd>LB</kbd>／<kbd>Y</kbd>）と、<b>いつも効くスキル</b>が1つずつ。スキルは CPU 対戦（ひとりで遊ぶとき）だけです。</p>
+    <div class="skillcards">
+      <div class="skillcard cat">
+        <img src="img/nose.jpg" alt="見張りネコのするどい鼻（足あとの線と金色の縁）" loading="lazy" width="1280" height="720">
+        <h3>見張りネコ</h3>
+        <div class="skill">
+          <span class="tag act">使う</span><span class="name">するどい鼻</span>
+          <p><b>6秒間</b>、みんなの<b>さっきまでの足あと</b>（8秒ぶん）が光る線で見えます。止まっている子が、さっきまでどこを歩いていたかが分かる。使ってから<b>10秒</b>でまた使えます。</p>
+          <p class="fx">使っている間は、画面の縁が金色に「くんくん」と脈打ちます。</p>
+        </div>
+        <div class="skill">
+          <span class="tag pas">いつも</span><span class="name">はや足</span>
+          <p>歩くのが少し速い（×1.12）。</p>
+        </div>
       </div>
-      <figure>
-        <img src="img/skills.jpg" alt="魔女リリカの透明化" loading="lazy" width="1280" height="720">
-        <figcaption>リリカの透明化（左下に残り時間）</figcaption>
-      </figure>
+      <div class="skillcard witch">
+        <img src="img/skills.jpg" alt="魔女リリカの透明化（半透明の杖と紫の縁）" loading="lazy" width="1280" height="720">
+        <h3>魔女リリカ</h3>
+        <div class="skill">
+          <span class="tag act">使う</span><span class="name">透明化</span>
+          <p><b>5秒間</b>、泥棒の画面から<b>体・視界の扇・画面外の矢印</b>が消えます。<b>捕獲魔法を撃つと、その場で姿が戻ります</b>。使ってから<b>25秒</b>でまた使えます。</p>
+          <p class="fx">透明の間は、自分の手と杖が半透明になり、画面の縁が紫に光ります。</p>
+        </div>
+        <div class="skill">
+          <span class="tag pas">いつも</span><span class="name">射程アップ</span>
+          <p>捕獲魔法が遠くまで届く（×1.3。11m → 約14m）。</p>
+        </div>
+      </div>
     </div>
+
+    <div class="panel skillpanel">
+      <h3>スキルの札の見かた（鬼の画面の左下）</h3>
+      <div class="cardstates">
+        <figure><img src="img/skillcard-active.png" alt="効果中のスキルの札" loading="lazy" width="510" height="160"><figcaption><b>効果中</b>：スキルの色のゲージが減っていく</figcaption></figure>
+        <figure><img src="img/skillcard-cool.png" alt="クールタイム中のスキルの札" loading="lazy" width="510" height="160"><figcaption><b>クールタイム</b>：水色のゲージがたまっていく</figcaption></figure>
+        <figure><img src="img/skillcard-ready.png" alt="使えるときのスキルの札" loading="lazy" width="510" height="160"><figcaption><b>使える！</b>：金色に光る</figcaption></figure>
+      </div>
+      <ul>
+        <li>使った瞬間は、画面に光の輪が広がります。効果が終わる<b>1.5秒前</b>から画面の縁が速く点滅（リリカは杖もちらつく）。もうすぐ切れる合図です。</li>
+        <li>使えるようになった瞬間は、札がはねて音が鳴ります。待ち時間中に押すと、札がゆれて教えてくれます。</li>
+        <li>設定の「フラッシュをへらす」「画面の揺れをへらす」をオンにすると、演出が控えめになります。</li>
+      </ul>
+    </div>
+
+    <div class="panel skillpanel thiefside">
+      <h3>泥棒から見ると</h3>
+      <ul>
+        <li>ラウンドの始めに、その鬼のスキルが画面に出ます。</li>
+        <li>鬼が透明になっても<b>「消えた」とは知らされません</b>。消える瞬間が画面に映っていれば、煙で分かります。消えた場所と向きを覚えておこう。</li>
+        <li>するどい鼻の足あとは<b>鬼の画面にだけ</b>見えます。使われたかどうかは分かりません。歩いた道すじにも気をつけて。</li>
+      </ul>
+    </div>
+
+    <p class="note">そのほか：2対2は出口が4つに。出口の手前の目隠しをなくし、出口のすぐそばには子が出ないようにしました（ゴール前の楽な脱出をなくすため）。ステージの作りが変わったので、0.3.x とは一緒に遊べません。友達も 0.4.0 を落とし直してください。</p>
   </section>
 
   <section id="replay">

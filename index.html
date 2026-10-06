@@ -183,7 +183,7 @@
           <span>Mac 版<small>macOS 12 以降（Intel / Apple シリコン）</small></span>
         </a>
       </div>
-      <p class="ver">テスト版 0.3.1（2026年10月5日）・無料。2〜4人で遊べます（ネット越しでも、同じ家のネットワークでも。ひとりでも CPU と）。日本語／English。</p>
+      <p class="ver">テスト版 0.4.0（2026年10月6日）・無料。2〜4人で遊べます（ネット越しでも、同じ家のネットワークでも。ひとりでも CPU と）。日本語／English。</p>
     </div>
     <img class="shot" src="img/title.jpg" alt="タイトル画面" width="1280" height="720">
   </div>
@@ -221,6 +221,28 @@
       <figure>
         <img src="img/bonus.jpg" alt="演技ボーナスのゲージ（MAX）" loading="lazy" width="672" height="236">
         <figcaption>泥棒の画面の左下。MAX になるとゲージが虹色に光ります</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>0.4.0 で増えたもの：鬼のスキル</h2>
+    <div class="bonus">
+      <div>
+        <h3>鬼の見た目ごとに、スキルが2つ</h3>
+        <p>タイトルの「鬼のすがた」で選んだ姿によって、<b>使うスキル</b>（<kbd>右クリック</kbd>・コントローラーは <kbd>LB</kbd>／<kbd>Y</kbd>）と<b>いつも効くスキル</b>が変わります。</p>
+        <ul>
+          <li><b>見張りネコ</b>：<b>するどい鼻</b>（6秒間、みんなの最近の足あとが見える。10秒ごと）＋<b>はや足</b>（いつも少し速く歩ける）</li>
+          <li><b>魔女リリカ</b>：<b>透明化</b>（5秒間、泥棒の画面から体・視界の扇・画面外の矢印が消える。魔法を撃つと解ける。25秒ごと）＋<b>射程アップ</b>（捕獲魔法が遠くまで届く）</li>
+          <li>左下の札でスキルの残り時間と、次に使えるまでが分かります。</li>
+          <li>スキルは CPU 対戦（ひとりで遊ぶとき）だけ。フレンド対戦・ランダム対戦ではスキルなしで、今までどおり遊べます。</li>
+          <li>そのほか：2対2は出口が4つに。出口の手前の目隠しをなくし、出口のすぐそばには子が出ないように（ゴール前の楽な脱出をなくすため）。</li>
+        </ul>
+        <p class="note" style="margin-top:10px">ステージの作りが変わったので、0.3.x とは一緒に遊べません。友達も 0.4.0 を落とし直してください。</p>
+      </div>
+      <figure>
+        <img src="img/skills.jpg" alt="魔女リリカの透明化" loading="lazy" width="1280" height="720">
+        <figcaption>リリカの透明化（左下に残り時間）</figcaption>
       </figure>
     </div>
   </section>
@@ -339,8 +361,8 @@
     <div class="panel">
       <h3>ダウンロードしたファイルの確認（任意）</h3>
       <p class="note">配っているのはこのページと GitHub の Releases だけです。ほかの場所から受け取った zip は開かないでください。中身が本物かどうかは、次の SHA-256 と一致するかで確かめられます。</p>
-      <pre id="sums">c3cab290f18ccabe799f29e3935e6844282fd4aecfd8be49d752897a2f86ece1  CopycatCrook-mac.zip
-01d3e8545d1a4d008e9121411de835a988f215693728f6ea72671bc74d2f88b4  CopycatCrook-win.zip</pre>
+      <pre id="sums">83f0beeba9ea40d956a0ec76adda219890ac3d767973791ca1fddc32ecdcfbf6  CopycatCrook-mac.zip
+8fa4679332bb4dcc8cb067abd2066990fd394d24291f04b2af4b96720bab69d3  CopycatCrook-win.zip</pre>
     </div>
   </section>
 
@@ -373,12 +395,12 @@
     <div class="panel">
       <table class="keys">
         <tr><th>泥棒</th><td><kbd>WASD</kbd> 移動　<kbd>Space</kbd>・<kbd>F</kbd> まねっこアクション　<kbd>左クリック</kbd> 乗り移り　<kbd>R</kbd> 本命へ戻る　<kbd>Q</kbd>・<kbd>E</kbd> カメラ　<kbd>Tab</kbd> 全体</td></tr>
-        <tr><th>鬼</th><td><kbd>マウス</kbd> 見回す　<kbd>WASD</kbd> 移動　<kbd>左クリック</kbd> 捕獲魔法　<kbd>Esc</kbd> メニュー</td></tr>
+        <tr><th>鬼</th><td><kbd>マウス</kbd> 見回す　<kbd>WASD</kbd> 移動　<kbd>左クリック</kbd> 捕獲魔法　<kbd>右クリック</kbd> スキル（CPU 対戦）　<kbd>Esc</kbd> メニュー</td></tr>
       </table>
       <h3 style="margin-top:18px">コントローラー</h3>
       <table class="keys">
         <tr><th>泥棒</th><td><kbd>左スティック</kbd> 移動　<kbd>A</kbd>・<kbd>B</kbd> まねっこアクション　<kbd>LB</kbd>・<kbd>RB</kbd> で選んで <kbd>X</kbd> 乗り移り　<kbd>Y</kbd> 本命へ　<kbd>右スティック</kbd> カメラ　<kbd>LT</kbd> 全体</td></tr>
-        <tr><th>鬼</th><td><kbd>右スティック</kbd> 見回す　<kbd>左スティック</kbd> 移動　<kbd>RT</kbd> 捕獲魔法　<kbd>START</kbd> メニュー</td></tr>
+        <tr><th>鬼</th><td><kbd>右スティック</kbd> 見回す　<kbd>左スティック</kbd> 移動　<kbd>RT</kbd> 捕獲魔法　<kbd>LB</kbd>・<kbd>Y</kbd> スキル（CPU 対戦）　<kbd>START</kbd> メニュー</td></tr>
         <tr><th>画面</th><td><kbd>スティック</kbd> 選ぶ　<kbd>A</kbd> 決定　<kbd>B</kbd> 戻る（PlayStation のコントローラーは ×○□△ の表示になります）</td></tr>
       </table>
       <p class="note">ひとりでも CPU と対戦できます。フレンド対戦の部屋コードの入力だけはキーボードを使ってください。</p>

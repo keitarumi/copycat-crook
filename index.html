@@ -222,7 +222,7 @@
           <span>Mac 版<small>macOS 12 以降（Intel / Apple シリコン）</small></span>
         </a>
       </div>
-      <p class="ver">テスト版 0.4.0（2026年10月6日）・無料。2〜4人で遊べます（ネット越しでも、同じ家のネットワークでも。ひとりでも CPU と）。日本語／English。</p>
+      <p class="ver">テスト版 0.5.0（2026年10月7日）・無料。2〜4人で遊べます（ネット越しでも、同じ家のネットワークでも。ひとりでも CPU と）。日本語／English。</p>
     </div>
     <img class="shot" src="img/title.jpg" alt="タイトル画面" width="1280" height="720">
   </div>
@@ -238,7 +238,7 @@
       </div>
       <div class="card oni">
         <h3>鬼：見破って捕まえる</h3>
-        <p>一人称で群れを見張り、不自然な子に<b>捕獲魔法</b>。ただし人が操作している子が本命とは限らない。からっぽの子に当てても回数はへる。姿ごとの<a href="#skills">スキル</a>も（CPU 対戦）。</p>
+        <p>一人称で群れを見張り、不自然な子に<b>捕獲魔法</b>。ただし人が操作している子が本命とは限らない。からっぽの子に当てても回数はへる。姿ごとの<a href="#skills">スキル</a>も。</p>
       </div>
       <div class="card friend">
         <h3>攻守を交代して勝負</h3>
@@ -264,9 +264,49 @@
     </div>
   </section>
 
+  <section id="v050">
+    <h2>0.5.0 で増えたもの：オンラインでもスキル・練習・鬼のチュートリアル</h2>
+    <div class="bonus">
+      <div>
+        <h3>鬼のチュートリアル（ボイスつき）</h3>
+        <p>「あそびかた」の<b>「鬼のチュートリアル」</b>から。見回す → 歩く → 捕獲魔法 → スキル → 本命の見つけ方 → 捕まえる、を1つずつ案内します。</p>
+        <ul>
+          <li>チュートリアルの泥棒は、おとりを使わず、ゆっくり歩きます。なかなか見つからないと、ヒントの文と、本命の上の<b>「あやしい…？」</b>が出ます。</li>
+          <li>泥棒のチュートリアルのクリア画面からも、そのまま鬼のチュートリアルへ進めます。</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="img/onitutorial.jpg" alt="鬼のチュートリアルのヒント（本命の上の「あやしい…？」）" loading="lazy" width="1280" height="720">
+        <figcaption>見つからないときのヒント</figcaption>
+      </figure>
+    </div>
+    <div class="bonus">
+      <div>
+        <h3>練習：好きな役だけを、何回でも</h3>
+        <p>タイトルの<b>「練習」</b>で、<b>1対1／2対2</b>と<b>泥棒／鬼</b>を選んで始めます。相手と相方は CPU。毎ラウンド同じ役で、試合の終わりはありません。</p>
+        <ul>
+          <li>結果の画面は自動で進みません。「リプレイ」「役を交代」「タイトルへ」「もう一回」から選べます（<kbd>C</kbd> 役を交代・<kbd>T</kbd> タイトルへ）。</li>
+          <li>ステージと鬼のすがたは、タイトルで選んでいるものになります。</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="img/practice.jpg" alt="練習の結果の画面（役を交代・もう一回）" loading="lazy" width="1280" height="720">
+        <figcaption>練習の結果の画面</figcaption>
+      </figure>
+    </div>
+    <div class="panel">
+      <h3>ほかにも</h3>
+      <ul>
+      <li><b>オンラインでも鬼のスキル</b>：フレンド対戦・ランダム対戦でも、姿ごとのスキルが使えます（使えるかどうかはホストが決めます。透明の鬼の本当の位置は、泥棒のパソコンには届きません）。</li>
+      <li><b>スキル説明</b>：タイトルの「鬼のすがた」の<b>「スキル説明」</b>で、2つの姿のスキルを見比べて、その場で姿も選べます。</li>
+      </ul>
+    </div>
+    <p class="note">通信の作りが変わったので、0.4.x とは一緒に遊べません。友達も 0.5.0 を落とし直してください。</p>
+  </section>
+
   <section id="skills">
-    <h2>0.4.0 で増えたもの：鬼のスキル</h2>
-    <p class="intro">タイトルの<b>「鬼のすがた」</b>で選んだ姿によって、鬼のスキルが変わります。どちらの姿にも、ボタンで<b>使うスキル</b>（<kbd>右クリック</kbd>・コントローラーは <kbd>LB</kbd>／<kbd>Y</kbd>）と、<b>いつも効くスキル</b>が1つずつ。スキルは CPU 対戦（ひとりで遊ぶとき）だけです。</p>
+    <h2>鬼のスキル</h2>
+    <p class="intro">タイトルの<b>「鬼のすがた」</b>で選んだ姿によって、鬼のスキルが変わります。どちらの姿にも、ボタンで<b>使うスキル</b>（<kbd>右クリック</kbd>・コントローラーは <kbd>LB</kbd>／<kbd>Y</kbd>）と、<b>いつも効くスキル</b>が1つずつ。CPU 対戦・練習・フレンド対戦・ランダム対戦のどれでも使えます。</p>
     <div class="skillcards">
       <div class="skillcard cat">
         <img src="img/nose.jpg" alt="見張りネコのするどい鼻（足あとの線と金色の縁）" loading="lazy" width="1280" height="720">
@@ -316,10 +356,11 @@
         <li>ラウンドの始めに、その鬼のスキルが画面に出ます。</li>
         <li>鬼が透明になっても<b>「消えた」とは知らされません</b>。消える瞬間が画面に映っていれば、煙で分かります。消えた場所と向きを覚えておこう。</li>
         <li>するどい鼻の足あとは<b>鬼の画面にだけ</b>見えます。使われたかどうかは分かりません。歩いた道すじにも気をつけて。</li>
+        <li>オンラインでも、透明の鬼の本当の位置はあなたのパソコンに届きません。決着のあと、リプレイで透明の間の動きを見られます。</li>
       </ul>
     </div>
 
-    <p class="note">そのほか：2対2は出口が4つに。出口の手前の目隠しをなくし、出口のすぐそばには子が出ないようにしました（ゴール前の楽な脱出をなくすため）。ステージの作りが変わったので、0.3.x とは一緒に遊べません。友達も 0.4.0 を落とし直してください。</p>
+    <p class="note">そのほか：2対2は出口が4つに。出口の手前の目隠しをなくし、出口のすぐそばには子が出ないようにしました（ゴール前の楽な脱出をなくすため）。（0.4.0 から）</p>
   </section>
 
   <section id="replay">
@@ -436,8 +477,8 @@
     <div class="panel">
       <h3>ダウンロードしたファイルの確認（任意）</h3>
       <p class="note">配っているのはこのページと GitHub の Releases だけです。ほかの場所から受け取った zip は開かないでください。中身が本物かどうかは、次の SHA-256 と一致するかで確かめられます。</p>
-      <pre id="sums">83f0beeba9ea40d956a0ec76adda219890ac3d767973791ca1fddc32ecdcfbf6  CopycatCrook-mac.zip
-8fa4679332bb4dcc8cb067abd2066990fd394d24291f04b2af4b96720bab69d3  CopycatCrook-win.zip</pre>
+      <pre id="sums">5492bfbf84a90799e57daa5b19eaf5aacfbfea0c46f558747b8f733ea63cacf2  CopycatCrook-mac.zip
+b16f47b9f41f32ffde1e8eaf24811af7cbdedd391f995632accd7ce6d0c7e4d0  CopycatCrook-win.zip</pre>
     </div>
   </section>
 
@@ -470,12 +511,12 @@
     <div class="panel">
       <table class="keys">
         <tr><th>泥棒</th><td><kbd>WASD</kbd> 移動　<kbd>Space</kbd>・<kbd>F</kbd> まねっこアクション　<kbd>左クリック</kbd> 乗り移り　<kbd>R</kbd> 本命へ戻る　<kbd>Q</kbd>・<kbd>E</kbd> カメラ　<kbd>Tab</kbd> 全体</td></tr>
-        <tr><th>鬼</th><td><kbd>マウス</kbd> 見回す　<kbd>WASD</kbd> 移動　<kbd>左クリック</kbd> 捕獲魔法　<kbd>右クリック</kbd> スキル（CPU 対戦）　<kbd>Esc</kbd> メニュー</td></tr>
+        <tr><th>鬼</th><td><kbd>マウス</kbd> 見回す　<kbd>WASD</kbd> 移動　<kbd>左クリック</kbd> 捕獲魔法　<kbd>右クリック</kbd> スキル　<kbd>Esc</kbd> メニュー</td></tr>
       </table>
       <h3 style="margin-top:18px">コントローラー</h3>
       <table class="keys">
         <tr><th>泥棒</th><td><kbd>左スティック</kbd> 移動　<kbd>A</kbd>・<kbd>B</kbd> まねっこアクション　<kbd>LB</kbd>・<kbd>RB</kbd> で選んで <kbd>X</kbd> 乗り移り　<kbd>Y</kbd> 本命へ　<kbd>右スティック</kbd> カメラ　<kbd>LT</kbd> 全体</td></tr>
-        <tr><th>鬼</th><td><kbd>右スティック</kbd> 見回す　<kbd>左スティック</kbd> 移動　<kbd>RT</kbd> 捕獲魔法　<kbd>LB</kbd>・<kbd>Y</kbd> スキル（CPU 対戦）　<kbd>START</kbd> メニュー</td></tr>
+        <tr><th>鬼</th><td><kbd>右スティック</kbd> 見回す　<kbd>左スティック</kbd> 移動　<kbd>RT</kbd> 捕獲魔法　<kbd>LB</kbd>・<kbd>Y</kbd> スキル　<kbd>START</kbd> メニュー</td></tr>
         <tr><th>画面</th><td><kbd>スティック</kbd> 選ぶ　<kbd>A</kbd> 決定　<kbd>B</kbd> 戻る（PlayStation のコントローラーは ×○□△ の表示になります）</td></tr>
       </table>
       <p class="note">ひとりでも CPU と対戦できます。フレンド対戦の部屋コードの入力だけはキーボードを使ってください。</p>
